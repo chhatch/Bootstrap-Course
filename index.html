@@ -64,10 +64,8 @@
                             >
                         </li>
                     </ul>
-                    <span class="navbar-text">
-                        <a data-toggle="modal" data-target="#loginModal">
-                            <span class="fa fa-sign-in"></span> Login
-                        </a>
+                    <span id="login" class="navbar-text">
+                        <a> <span class="fa fa-sign-in"></span> Login </a>
                     </span>
                 </div>
             </div>
@@ -283,8 +281,7 @@
                             </div>
                             <div class="col-12 col-sm-5 align-self-center">
                                 <a
-                                    data-toggle="modal"
-                                    data-target="#reservationModal"
+                                    id="reserveTable"
                                     class="btn btn-sm btn-block bg-warning"
                                 >
                                     Reserve Table
@@ -405,12 +402,12 @@
                         >
                             <span class="carousel-control-next-icon"> </span>
                         </a>
-                            <button
-                                class="btn btn-danger btn-sm"
-                                id="carouselButton"
-                            >
-                                <span class="fa fa-pause"></span>
-                            </button>
+                        <button
+                            class="btn btn-danger btn-sm"
+                            id="carouselButton"
+                        >
+                            <span class="fa fa-pause"></span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -488,17 +485,41 @@
         <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
         <script>
             $(document).ready(() => {
-                $('#mycarousel').carousel({interval: 2000});
+                $('#mycarousel').carousel({interval: 2000})
                 $('#carouselButton').click(() => {
-                    if ($('#carouselButton').children('span').hasClass('fa-pause')) {
+                    if (
+                        $('#carouselButton')
+                            .children('span')
+                            .hasClass('fa-pause')
+                    ) {
                         $('#mycarousel').carousel('pause')
-                        $('#carouselButton').children('span').removeClass('fa-pause')
-                        $('#carouselButton').children('span').addClass('fa-play')
-                    } else if ($('#carouselButton').children('span').hasClass('fa-play')) {
+                        $('#carouselButton')
+                            .children('span')
+                            .removeClass('fa-pause')
+                        $('#carouselButton')
+                            .children('span')
+                            .addClass('fa-play')
+                    } else if (
+                        $('#carouselButton')
+                            .children('span')
+                            .hasClass('fa-play')
+                    ) {
                         $('#mycarousel').carousel('cycle')
-                        $('#carouselButton').children('span').removeClass('fa-play')
-                        $('#carouselButton').children('span').addClass('fa-pause')
+                        $('#carouselButton')
+                            .children('span')
+                            .removeClass('fa-play')
+                        $('#carouselButton')
+                            .children('span')
+                            .addClass('fa-pause')
                     }
+                })
+
+                $('#reserveTable').click(() => {
+                    $('#reservationModal').modal('toggle')
+                })
+
+                $('#login').click(() => {
+                    $('#loginModal').modal('toggle')
                 })
             })
         </script>
