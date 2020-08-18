@@ -38,7 +38,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <a class="navbar-brand mr-auto" href="./index.html">
-                    <img src="img/logo.png" height="30" wdith="41" />
+                    <img src="img/logo.png" height="30" width="41" />
                 </a>
                 <div class="collapse navbar-collapse" id="Navbar">
                     <ul class="navbar-nav mr-auto">
@@ -172,10 +172,7 @@
                                     data-toggle="buttons"
                                 >
                                     <label class="mr-3">
-                                        <input
-                                            class="mr-1"
-                                            type="radio"
-                                        />
+                                        <input class="mr-1" type="radio" />
                                         1
                                     </label>
                                     <label class="mr-3">
@@ -187,24 +184,15 @@
                                         2
                                     </label>
                                     <label class="mr-3">
-                                        <input
-                                            class="mr-1"
-                                            type="radio"
-                                        />
+                                        <input class="mr-1" type="radio" />
                                         3
                                     </label>
                                     <label class="mr-3">
-                                        <input
-                                            class="mr-1"
-                                            type="radio"
-                                        />
+                                        <input class="mr-1" type="radio" />
                                         4
                                     </label>
                                     <label class="mr-3">
-                                        <input
-                                            class="mr-1"
-                                            type="radio"
-                                        />
+                                        <input class="mr-1" type="radio" />
                                         5
                                     </label>
                                     <label class="mr-3">
@@ -227,16 +215,11 @@
                                         data-toggle="buttons"
                                     >
                                         <label class="btn btn-success active">
-                                            <input
-                                                type="radio"
-                                                checked
-                                            />
+                                            <input type="radio" checked />
                                             Non-Smoking
                                         </label>
                                         <label class="btn btn-danger">
-                                            <input
-                                                type="radio"
-                                            />
+                                            <input type="radio" />
                                             Smoking
                                         </label>
                                     </div>
@@ -422,9 +405,23 @@
                         >
                             <span class="carousel-control-next-icon"> </span>
                         </a>
+                        <div class="btn-group" id="carouselButton">
+                            <button
+                                class="btn btn-danger btn-sm"
+                                id="carousel-pause"
+                            >
+                                <span class="fa fa-pause"></span>
+                            </button>
+                            <button
+                                class="btn btn-danger btn-sm"
+                                id="carousel-play"
+                            >
+                                <span class="fa fa-play"></span>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
 
         <footer class="footer">
             <div class="container">
@@ -496,5 +493,16 @@
         <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
         <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
         <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(() => {
+                $('#mycarousel').carousel({interval: 2000});
+                $('#carousel-pause').click(() => {
+                    $('#mycarousel').carousel('pause')
+                })
+                $('#carousel-play').click(() => {
+                    $('#mycarousel').carousel('cycle')
+                })
+            })
+        </script>
     </body>
 </html>
